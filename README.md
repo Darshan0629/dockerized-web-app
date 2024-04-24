@@ -1,4 +1,4 @@
-# Docker and Three-Tier Architecture
+![mongo-01](https://github.com/Darshan0629/dockerized-web-app/assets/121339364/ac617e76-17c0-46aa-bf6e-1554b982416f)# Docker and Three-Tier Architecture
 
 ## Introduction to Docker
 
@@ -31,11 +31,10 @@ For the backend tier, Docker containers can encapsulate the application logic, i
 In the frontend tier, Docker can be used to package and deploy the presentation layer components such as static web assets, JavaScript frameworks like React or Angular, and web servers like Nginx or Apache. Docker containers enable developers to build and deploy frontend applications with ease, ensuring consistency and reliability.
 
 Folder Structure of project:
-
-
+![image](https://github.com/Darshan0629/dockerized-web-app/assets/121339364/09e94322-7119-4533-b8bd-4041c4a83b13)
 
 Folder structure of jenkyll:
-
+![image](https://github.com/Darshan0629/dockerized-web-app/assets/121339364/076cbd26-7157-4cdf-b718-148f294b9c70)
 
 
 # Part 1 - Setting Up the Database Tier with MongoDB
@@ -52,6 +51,8 @@ FROM mongo:latest
 ENV MONGO_CONTAINER_NAME="mongodb-21bcp140"
 ```
 
+![mongo-01](https://github.com/Darshan0629/dockerized-web-app/assets/121339364/74f49803-f6c0-48fa-bf0a-137ccf1e4cdd)
+
 ## Step 2: building and running the database
 
 ```dockerfile
@@ -62,8 +63,8 @@ docker build -t mongodb-21bcp140 .
 docker run -d --name mongodb-21bcp140 -p 27017:27017 mongodb-21bcp140
 
 ```
+![mongo-02](https://github.com/Darshan0629/dockerized-web-app/assets/121339364/2394aa5c-c683-47a3-a421-41f1f6b8dd25)
 
-image
 
 ## Step 3: Connecting MongoDB Container to Network
 ```dockerfile
@@ -74,7 +75,8 @@ docker network create my-network
 docker network connect my-network mongodb-21bcp140
 ```
 
-image
+![mongo-03](https://github.com/Darshan0629/dockerized-web-app/assets/121339364/108d9a76-3697-462e-b5b1-44133f62df0c)
+
 
 
 
@@ -117,6 +119,7 @@ EXPOSE 5000
 # Command to run the backend server
 CMD ["node", "server.js"]
 ```
+![backend-01](https://github.com/Darshan0629/dockerized-web-app/assets/121339364/d5c68c3a-d479-425c-838e-fd7dd9b5282c)
 
 
 ## Step 2: Building and Running Node.js Backend Container
@@ -128,7 +131,8 @@ docker build -t nodejs-backend-21bcp140 .
 # Run the Node.js backend container
 docker run -d --name nodejs-backend-21bcp140 -p 5000:5000 --network my-network nodejs-backend-21bcp140
 ```
-image
+![backend-02](https://github.com/Darshan0629/dockerized-web-app/assets/121339364/731f0b1e-3e1b-463c-adf7-36e405330e11)
+
 
 ---
 layout: part3
@@ -178,7 +182,8 @@ EXPOSE 80
 # Command to start NGINX
 CMD ["nginx", "-g", "daemon off;"]
 ```
-image
+![frontend-01](https://github.com/Darshan0629/dockerized-web-app/assets/121339364/d7ffa384-548a-4617-bdaa-795d4851a38f)
+
 
 ## Step 2: Building and Running React Frontend Container
  ``` dockerfile
@@ -188,7 +193,9 @@ docker build -t react-frontend-21bcp140 .
 # Run the React frontend container
 docker run -d --name react-frontend-21bcp140 -p 80:80 --network my-network react-frontend-21bcp140
 ```
-image
+![frontend-02](https://github.com/Darshan0629/dockerized-web-app/assets/121339364/0afe3fa3-baa4-4c2c-9cbd-bbcaa386b4d1)
+
+![frontend-03](https://github.com/Darshan0629/dockerized-web-app/assets/121339364/1e8be5ed-838b-4f8d-825e-3da37a3d1819)
 
 
 ## Conclusion
