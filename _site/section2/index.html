@@ -1,0 +1,222 @@
+
+<html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Section 2 - Setting Up the Backend Tier</title>
+  <meta name="description" content="">
+  <!-- Include your CSS file -->
+  <link rel="stylesheet" href="/dockerized-web-app/assets/style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #efbdbd;
+    }
+
+    nav {
+      background-color: #0f66ea;
+      color: #fff;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline;
+    }
+
+    nav ul li a {
+      display: block;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    nav ul li a.active {
+      background-color: #4CAF50;
+    }
+
+    .container {
+      margin: 20px auto;
+      max-width: 1400px;
+      background-color: #dae6d9;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .post-list-heading {
+      margin-top: 0;
+    }
+    img{
+      width: 80%;
+    }
+
+    .post-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .post-link {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .post-link:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .footer-content {
+      background-color: #f09a9a;
+      color: #070606;
+      padding: 10px 0;
+      border-radius: 5px;
+      max-width: 200px;
+    }
+
+    .social-links {
+      margin-bottom: 10px;
+    }
+
+    .social-links a {
+      color: #020202;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    .social-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  
+<nav>
+  <ul>
+    <li><a href="/" class="">Home</a></li>
+    <li><a href="/section1/" class="">Section 1</a></li>
+    <li><a href="/section2/" class="">Section 2</a></li>
+    <li><a href="/section3/" class="">Section 3</a></li>
+  </ul>
+</nav>
+
+  <div class="container">
+
+    <div class="home">
+      <h1 class="post-list-heading">Welcome to the blog for Dockerized web applications</h1>
+      <h3 class="post-list-heading">By: Darshan Mangrola (21BCP140)</h3>
+      <p>
+        This is a basic how-to for creating a Docker-based Web Application. <br><br>
+        There are three sections to the guide.<br>
+        <li>
+          You can access Section 1 in the navigation bar to learn how to create a database and connect it to the web
+          application.<br><br></li>
+        <li>By selecting Section 2 in the navbar, you can access the second section, which covers configuring backend
+          services
+          and connecting them to the web application and database.<br><br></li>
+        <li>By selecting Section 3 from the navbar, you can access the third section, which covers how to set up the
+          frontend
+          and connect it to the database, backend services, and web application.<br><br></ul>
+        </li>
+
+
+      </p>
+
+      <ul class="post-list">
+        <li>
+          <!-- <span class="post-meta">Apr 23, 2024</span> -->
+          <h3>
+            <a class="post-link" href="https://github.com/murlipatel1/mernstack_todolist">
+              Citation This is a github link to the MERN stack todo list that was containerized with Docker.
+            </a>
+          </h3>
+
+        </li>
+      </ul>
+
+      <footer>
+        <div class="footer-content">
+          <div class="social-links">
+            <a href="https://github.com/darshan0629">GitHub</a>
+            <a href="https://www.linkedin.com/in/darshan-mangrola-40b319233/">LinkedIn</a>
+          </div>
+
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- <h2>Part 2: Setting Up the Backend Tier</h2> -->
+
+<!-- <p>Welcome back to our tutorial series on building a three-tier application with Docker!</p> -->
+
+<!-- Insert content from your Docker part 2 blog post here -->
+<!-- Content for Docker section 2 -->
+
+<h1 id="section-2---setting-up-the-backend-tier-with-nodejs">Section 2 - Setting Up the Backend Tier with Node.js</h1>
+
+<p>In this section of the tutorial, we will set up the backend tier using Node.js.</p>
+
+<h2 id="step-1-dockerfile-for-nodejs-backend">Step 1: Dockerfile for Node.js Backend</h2>
+
+<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Use the official Node.js image as the base image</span>
+<span class="k">FROM</span><span class="s"> node:latest</span>
+
+<span class="c"># Set container name with roll number</span>
+<span class="k">ENV</span><span class="s"> NODE_CONTAINER_NAME="nodejs-backend-21bcp140"</span>
+
+<span class="c"># Create and set working directory</span>
+<span class="k">WORKDIR</span><span class="s"> /app</span>
+
+<span class="c"># Copy package.json and package-lock.json</span>
+<span class="k">COPY</span><span class="s"> package*.json ./</span>
+
+<span class="c"># Install dependencies</span>
+<span class="k">RUN </span>npm <span class="nb">install</span>
+
+<span class="c"># Copy backend source code</span>
+<span class="k">COPY</span><span class="s"> . .</span>
+
+<span class="c"># Expose port 5000</span>
+<span class="k">EXPOSE</span><span class="s"> 5000</span>
+
+<span class="c"># Command to run the backend server</span>
+<span class="k">CMD</span><span class="s"> ["node", "server.js"]</span>
+</code></pre></div></div>
+
+<p><img src="/images/backend-01.png" alt="Image" /></p>
+
+<h2 id="step-2-building-and-running-nodejs-backend-container">Step 2: Building and Running Node.js Backend Container</h2>
+
+<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Build the Docker image for Node.js backend</span>
+docker build -t nodejs-backend-21bcp140 .
+
+# Run the Node.js backend container
+docker run -d --name nodejs-backend-21bcp140 -p 5000:5000 --network my-network nodejs-backend-21bcp140
+</code></pre></div></div>
+<p><img src="/images/backend-02.png" alt="Image" /></p>
+
+
+<p>[Continue to <a href="/sectio3/">Section 3</a>]</p>
+
+
+  </div>
+
+</body>
+
+</html>

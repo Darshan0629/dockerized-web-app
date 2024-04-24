@@ -1,0 +1,161 @@
+{% assign base_url = "/dockerized-web-app/" %}
+<html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>{{ page.title }}</title>
+  <meta name="description" content="{{ page.description }}">
+  <!-- Include your CSS file -->
+  <link rel="stylesheet" href="/dockerized-web-app/assets/style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #efbdbd;
+    }
+
+    nav {
+      background-color: #0f66ea;
+      color: #fff;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline;
+    }
+
+    nav ul li a {
+      display: block;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    nav ul li a.active {
+      background-color: #4CAF50;
+    }
+
+    .container {
+      margin: 20px auto;
+      max-width: 1400px;
+      background-color: #dae6d9;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .post-list-heading {
+      margin-top: 0;
+    }
+    img{
+      width: 80%;
+    }
+
+    .post-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .post-link {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .post-link:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .footer-content {
+      background-color: #f09a9a;
+      color: #070606;
+      padding: 10px 0;
+      border-radius: 5px;
+      max-width: 200px;
+    }
+
+    .social-links {
+      margin-bottom: 10px;
+    }
+
+    .social-links a {
+      color: #020202;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    .social-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  {% include header.html %}
+  <div class="container">
+
+    <div class="home">
+      <h1 class="post-list-heading">Welcome to the blog for Dockerized web applications</h1>
+      <h3 class="post-list-heading">By: Darshan Mangrola (21BCP140)</h3>
+      <p>
+        This is a basic how-to for creating a Docker-based Web Application. <br><br>
+        There are three sections to the guide.<br>
+        <li>
+          You can access Section 1 in the navigation bar to learn how to create a database and connect it to the web
+          application.<br><br></li>
+        <li>By selecting Section 2 in the navbar, you can access the second section, which covers configuring backend
+          services
+          and connecting them to the web application and database.<br><br></li>
+        <li>By selecting Section 3 from the navbar, you can access the third section, which covers how to set up the
+          frontend
+          and connect it to the database, backend services, and web application.<br><br></ul>
+        </li>
+
+
+      </p>
+
+      <ul class="post-list">
+        <li>
+          <!-- <span class="post-meta">Apr 23, 2024</span> -->
+          <h3>
+            <a class="post-link" href="https://github.com/murlipatel1/mernstack_todolist">
+              Citation This is a github link to the MERN stack todo list that was containerized with Docker.
+            </a>
+          </h3>
+
+        </li>
+      </ul>
+
+      <footer>
+        <div class="footer-content">
+          <div class="social-links">
+            <a href="https://github.com/darshan0629">GitHub</a>
+            <a href="https://www.linkedin.com/in/darshan-mangrola-40b319233/">LinkedIn</a>
+          </div>
+
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+  <div class="container">
+    {{ content }}
+
+  </div>
+
+</body>
+
+</html>
